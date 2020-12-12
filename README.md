@@ -16,9 +16,9 @@
 1. 支持 Typescript
 1. 支持单元测试，与测试覆盖率
 1. 快速生成文档站点
-1. 接入 Circle CLI，构建、 发包、文档站点一条龙服务
+1. 接入 Circle CLI，构建、发包、文档站点一条龙服务
 1. 规范 ESLint + Prettier
-1. 快速生成 Change Log
+1. 快速生成 Change Log
 1. 生成同时支持 CommonJS 和 ES Module 的 NPM 包
 
 ## Download
@@ -61,17 +61,17 @@ git clone git@github.com:JerryC8080/module-seed.git
 
 ### 2. Npm Script
 
-| Script      | Description                                         |
-| ----------- | --------------------------------------------------- |
-| build       | 构建代码，生成 ./build 文件夹                       |
-| fix         | 快速格式化代码                                      |
-| test        | 构建单元测试                                        |
-| watch:build |  动态构建代码，用于开发模式                         |
-| watch:test  | 动态构建单元测试，用于开发模式                      |
-| cov         | 构建单元测试覆盖率，生成 ./coverage 文件夹          |
-| doc         | 构建文档站点，生成 ./docs 文件夹                    |
-| doc:publish | 发布文档站点到 github pages                         |
-| version     |  强制以 patch 模式更新 version，如：v0.0.1 → v0.0.2 |
+| Script      | Description                                        |
+| ----------- | -------------------------------------------------- |
+| build       | 构建代码，生成 ./build 文件夹                      |
+| fix         | 快速格式化代码                                     |
+| test        | 构建单元测试                                       |
+| watch:build | 动态构建代码，用于开发模式                         |
+| watch:test  | 动态构建单元测试，用于开发模式                     |
+| cov         | 构建单元测试覆盖率，生成 ./coverage 文件夹         |
+| doc         | 构建文档站点，生成 ./docs 文件夹                   |
+| doc:publish | 发布文档站点到 github pages                        |
+| version     | 强制以 patch 模式更新 version，如：v0.0.1 → v0.0.2 |
 
 ### 3. Coverage
 
@@ -95,7 +95,7 @@ open docs/index.html
 
 ### 5. CircleCI Config
 
-本项目选择 [CircleCI](https://circleci.com/) 来做项目的 CI，完成项目构建、发布 NPM、发布文档站点等工作。
+本项目选择 [CircleCI](https://circleci.com/) 来完成项目构建、发布 NPM、发布文档站点等自动化构建工作。
 
 #### 1. Add Repo to CircleCI
 
@@ -156,7 +156,7 @@ npm run doc:publish
 
 ![](https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212180750.png)
 
-那么，每次 CircleCI 发生构建的时候，就会构建文档，并发布到  github pages 中去。
+那么，每次 CircleCI 发生构建的时候，就会构建文档，并发布到 Github Pages 中去。
 
 例如本项目，就可以通过以下地址访问：
 
