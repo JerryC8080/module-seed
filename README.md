@@ -16,3 +16,8 @@
 ## Test and Coverage
 
 ## CI Config
+
+## License
+
+This project is licensed under the [MIT license](LICENSE).  
+Copyright (c) JerryC Huang (huangjerryc@gmail.com)
