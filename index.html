@@ -1,0 +1,313 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@jerryc/module-seed</title>
+	<meta name="description" content="Documentation for @jerryc/module-seed">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@jerryc/module-seed</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@jerryc/module-seed</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#module-seed" id="module-seed" style="color: inherit; text-decoration: none;">
+					<h1>Module Seed</h1>
+				</a>
+				<blockquote>
+					<p>一个为模块开发集成了常用工作流的种子仓库。</p>
+				</blockquote>
+				<p><a href="https://circleci.com/gh/JerryC8080/module-seed/tree/master"><img src="https://circleci.com/gh/JerryC8080/module-seed/tree/master.svg?style=svg" alt="CircleCI"></a></p>
+				<p><a href="https://www.npmjs.com/package/@jerryc/module-seed"><img src="https://img.shields.io/npm/v/@jerryc/module-seed.svg" alt="NPM Version"></a> <a href="https://www.npmjs.com/package/@jerryc/module-seed"><img src="https://img.shields.io/npm/dm/@jerryc/module-seed.svg" alt="NPM Downloads"></a> <a href="https://coveralls.io/github/JerryC8080/module-seed?branch=master"><img src="https://coveralls.io/repos/github/JerryC8080/module-seed/badge.svg?branch=master" alt="Coverage Status"></a> <img src="https://img.shields.io/bundlephobia/minzip/@jerryc/mini-logger.svg" alt="npm bundle size"></p>
+				<a href="#motivation" id="motivation" style="color: inherit; text-decoration: none;">
+					<h2>Motivation</h2>
+				</a>
+				<p>平时喜欢写一些 NPM 模块，写得多了，整理出一套工作流，解放一些重复的搭建工作。<br>如果你喜欢，请直接拿去用，也可以参照该项目的一些 Feature ，给你一些提示与帮助。</p>
+				<a href="#feature" id="feature" style="color: inherit; text-decoration: none;">
+					<h2>Feature</h2>
+				</a>
+				<ol>
+					<li>支持 Typescript</li>
+					<li>支持单元测试，与测试覆盖率</li>
+					<li>快速生成文档站点</li>
+					<li>接入 Circle CLI，构建、发包、文档站点一条龙服务</li>
+					<li>规范 ESLint + Prettier</li>
+					<li>快速生成 Change Log</li>
+					<li>生成同时支持 CommonJS 和 ES Module 的 NPM 包</li>
+				</ol>
+				<a href="#download" id="download" style="color: inherit; text-decoration: none;">
+					<h2>Download</h2>
+				</a>
+				<pre><code class="language-shell">git clone git@github.com:JerryC8080/module-seed.git</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#1-architecture" id="1-architecture" style="color: inherit; text-decoration: none;">
+					<h3>1. Architecture</h3>
+				</a>
+				<pre><code class="language-shell">.
+├── .circleci // CircleCI 脚本
+│   ├── config.yml
+├── coverage // 自动生成的测试覆盖率报告
+├── docs  // 自动生成的文档
+├── build  // 构建代码
+│   ├── main  // 兼容 CommonJS
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   └── lib
+│   └── module  // 兼容 ES Module
+│       ├── index.d.ts
+│       ├── index.js
+│       └── lib
+├── src  // 源码
+│   ├── index.ts
+│   └── lib
+│       ├── hello-world.spec.ts // 单元测试
+│       └── hello-world.ts
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── package.json
+├── tsconfig.json
+└── tsconfig.module.json</code></pre>
+				<a href="#2-npm-script" id="2-npm-script" style="color: inherit; text-decoration: none;">
+					<h3>2. Npm Script</h3>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Script</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>build</td>
+							<td>构建代码，生成 ./build 文件夹</td>
+						</tr>
+						<tr>
+							<td>fix</td>
+							<td>快速格式化代码</td>
+						</tr>
+						<tr>
+							<td>test</td>
+							<td>构建单元测试</td>
+						</tr>
+						<tr>
+							<td>watch:build</td>
+							<td>动态构建代码，用于开发模式</td>
+						</tr>
+						<tr>
+							<td>watch:test</td>
+							<td>动态构建单元测试，用于开发模式</td>
+						</tr>
+						<tr>
+							<td>cov</td>
+							<td>构建单元测试覆盖率，生成 ./coverage 文件夹</td>
+						</tr>
+						<tr>
+							<td>doc</td>
+							<td>构建文档站点，生成 ./docs 文件夹</td>
+						</tr>
+						<tr>
+							<td>doc:publish</td>
+							<td>发布文档站点到 github pages</td>
+						</tr>
+						<tr>
+							<td>version</td>
+							<td>强制以 patch 模式更新 version，如：v0.0.1 → v0.0.2</td>
+						</tr>
+				</tbody></table>
+				<a href="#3-coverage" id="3-coverage" style="color: inherit; text-decoration: none;">
+					<h3>3. Coverage</h3>
+				</a>
+				<p>通过运行 <code>npm run cov</code>，命令会构建单元测试，并且输出网页版本的测试报告：</p>
+				<pre><code class="language-shell">open coverage/index.html</code></pre>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212173414.png" alt="coverage"></p>
+				<a href="#4-docs" id="4-docs" style="color: inherit; text-decoration: none;">
+					<h3>4. Docs</h3>
+				</a>
+				<p>通过运行 <code>npm run doc</code>，会构建 TS API 文档，并且输出网页版本：</p>
+				<pre><code class="language-shell">open docs/index.html</code></pre>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212173820.png" alt="docs"></p>
+				<a href="#5-circleci-config" id="5-circleci-config" style="color: inherit; text-decoration: none;">
+					<h3>5. CircleCI Config</h3>
+				</a>
+				<p>本项目选择 <a href="https://circleci.com/">CircleCI</a> 来完成项目构建、发布 NPM、发布文档站点等自动化构建工作。</p>
+				<a href="#1-add-repo-to-circleci" id="1-add-repo-to-circleci" style="color: inherit; text-decoration: none;">
+					<h4>1. Add Repo to CircleCI</h4>
+				</a>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212174309.png" alt=""></p>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212174310.png" alt=""></p>
+				<a href="#2-test-coverage-to-coveralls" id="2-test-coverage-to-coveralls" style="color: inherit; text-decoration: none;">
+					<h4>2. Test Coverage to Coveralls</h4>
+				</a>
+				<p>如果想拥有一个这样的 Status: <img src="https://coveralls.io/repos/github/JerryC8080/module-seed/badge.svg?branch=master" alt="Coverage Status"></p>
+				<p>需要把你的 repo 添加到 <a href="https://coveralls.io/">coveralls.io</a></p>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212175434.png" alt=""></p>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212175435.png" alt=""></p>
+				<p>然后，在 CircleCI 添加环境变量 <code>COVERALLS_REPO_TOKEN</code></p>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212175703.png" alt=""></p>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212175850.png" alt=""></p>
+				<p>那么，每次 CircleCI 发生构建的时候，就会上报单元测试覆盖率到 coveralls 去。</p>
+				<p>参考 <code>.circleci/config.yml</code> 相关脚本:</p>
+				<pre><code class="language-yml"><span class="hljs-string">...</span>
+<span class="hljs-attr">upload-coveralls:</span>
+  <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-meta">*defaults</span>
+  <span class="hljs-attr">steps:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">attach_workspace:</span>
+        <span class="hljs-attr">at:</span> <span class="hljs-string">~/repo</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+        <span class="hljs-attr">name:</span> <span class="hljs-string">Test</span> <span class="hljs-string">Coverage</span>
+        <span class="hljs-attr">command:</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">cov</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+        <span class="hljs-attr">name:</span> <span class="hljs-string">Report</span> <span class="hljs-string">for</span> <span class="hljs-string">coveralls</span>
+        <span class="hljs-attr">command:</span> <span class="hljs-string">|
+          npm install coveralls --save-dev
+          ./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls
+</span>    <span class="hljs-bullet">-</span> <span class="hljs-attr">store_artifacts:</span>
+        <span class="hljs-attr">path:</span> <span class="hljs-string">coverage</span>
+<span class="hljs-string">...</span></code></pre>
+				<a href="#3-doc-site-to-github-pages" id="3-doc-site-to-github-pages" style="color: inherit; text-decoration: none;">
+					<h4>3. Doc Site to Github Pages</h4>
+				</a>
+				<p>本地可以通过命令来构建和发布文档站点到 Github Pages</p>
+				<pre><code class="language-shell">npm run doc
+npm run doc:publish</code></pre>
+				<p>如果这个动作交给 CircleCI 来完成，则需要为 Repo 添加一个 <code>Read/Write</code> 权限的 <code>User Key</code></p>
+				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212180750.png" alt=""></p>
+				<p>那么，每次 CircleCI 发生构建的时候，就会构建文档，并发布到 Github Pages 中去。</p>
+				<p>例如本项目，就可以通过以下地址访问：</p>
+				<p><a href="https://jerryc8080.github.io/module-seed">https://jerryc8080.github.io/module-seed</a></p>
+				<p>参考 <code>.circleci/config.yml</code> 相关脚本:</p>
+				<pre><code class="language-yml"><span class="hljs-string">...</span>
+ <span class="hljs-attr">deploy-docs:</span>
+    <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-meta">*defaults</span>
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">attach_workspace:</span>
+          <span class="hljs-attr">at:</span> <span class="hljs-string">~/repo</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Avoid</span> <span class="hljs-string">hosts</span> <span class="hljs-string">unknown</span> <span class="hljs-string">for</span> <span class="hljs-string">github</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">mkdir</span> <span class="hljs-string">~/.ssh/</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">echo</span> <span class="hljs-string">-e</span> <span class="hljs-string">&quot;Host github.com\n\tStrictHostKeyChecking no\n&quot;</span> <span class="hljs-string">&gt;</span> <span class="hljs-string">~/.ssh/config</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">github</span> <span class="hljs-string">email</span> <span class="hljs-string">and</span> <span class="hljs-string">user</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">|
+            git config --global user.email &quot;huangjerryc@gmail.com&quot;
+            git config --global user.name &quot;CircleCI-Robot&quot;
+</span>      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Show</span> <span class="hljs-string">coverage</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">ls</span> <span class="hljs-string">coverage</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Show</span> <span class="hljs-string">docs</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">ls</span> <span class="hljs-string">docs</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Copy</span> <span class="hljs-string">to</span> <span class="hljs-string">docs</span> <span class="hljs-string">folder</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">|
+            mkdir docs/coverage
+            cp -rf coverage/* docs/coverage
+</span>      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Show</span> <span class="hljs-string">docs</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">ls</span> <span class="hljs-string">docs</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
+          <span class="hljs-attr">name:</span> <span class="hljs-string">Publish</span> <span class="hljs-string">to</span> <span class="hljs-string">gh-pages</span>
+          <span class="hljs-attr">command:</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">doc:publish</span>
+<span class="hljs-string">...</span></code></pre>
+				<a href="#4-coverage-site" id="4-coverage-site" style="color: inherit; text-decoration: none;">
+					<h4>4. Coverage site</h4>
+				</a>
+				<p>在 CircleCI 的 <code>deploy-docs</code> 任务中，会构建 Coverage Site ，然后一起发布到 Github Pages 的 <code>/coverage</code> 目录中。</p>
+				<p>例如本项目，就可以通过以下地址访问：</p>
+				<p><a href="https://jerryc8080.github.io/module-seed/coverage/index.html">https://jerryc8080.github.io/module-seed/coverage/index.html</a></p>
+				<a href="#5-npm-deploy" id="5-npm-deploy" style="color: inherit; text-decoration: none;">
+					<h4>5. NPM Deploy</h4>
+				</a>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>This project is licensed under the <a href="LICENSE">MIT license</a>.<br>Copyright (c) JerryC Huang (<a href="mailto:&#104;&#117;&#x61;&#x6e;&#103;&#x6a;&#x65;&#x72;&#x72;&#x79;&#x63;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#104;&#117;&#x61;&#x6e;&#103;&#x6a;&#x65;&#x72;&#x72;&#x79;&#x63;&#x40;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;</a>)</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-function">
+						<a href="globals.html#helloworld" class="tsd-kind-icon">Hello<wbr>World</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
