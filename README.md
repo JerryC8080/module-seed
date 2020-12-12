@@ -209,6 +209,49 @@ npm run doc:publish
 
 #### 5. NPM Deploy
 
+自动化脚本会以 `patch` 的形式升级版本号，例如：`v0.0.1` → `v0.0.2`。  
+然后发布到 [npmjs.com](http://npmjs.com/) 去。
+
+如果需要启用这一功能，需要为 CircleCI Repo 添加 `npm token`。
+
+首先，获取 `npm token`
+
+![](https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212182501.png)
+![](https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212182500.png)
+
+然后，为 CircleCI Repo 添加环境变量：`npm_TOKEN`
+
+![](https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212182819.png)
+
+那么，每次 CircleCI 发生构建的时候，就会构建和发布 NPM 包。
+
+参考 `.circleci/config.yml` 相关脚本:
+
+```yml
+...
+deploy:
+  <<: *defaults
+  steps:
+    - attach_workspace:
+        at: ~/repo
+    - run:
+        name: Set github email and user
+        command: |
+          # You should change email to yours.
+          git config --global user.email "huangjerryc@gmail.com"
+          git config --global user.name "CircleCI-Robot"
+    - run:
+        name: Authenticate with registry
+        command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+    - run:
+        name: Update version as patch
+        command: npm run version
+    - run:
+        name: Publish package
+        command: npm publish
+...
+```
+
 ## License
 
 This project is licensed under the [MIT license](LICENSE).  
