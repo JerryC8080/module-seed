@@ -2,9 +2,15 @@
 
 > 一个为模块开发集成了常用工作流的种子仓库。
 
-[![CircleCI](https://circleci.com/gh/JerryC8080/module-seed/tree/master.svg?style=svg)](https://circleci.com/gh/JerryC8080/module-seed/tree/master)
+[![CircleCI](https://img.shields.io/circleci/build/github/JerryC8080/module-seed/master?style=for-the-badge)](https://circleci.com/gh/JerryC8080/module-seed/tree/master)
 
-[![NPM Version](https://img.shields.io/npm/v/@jerryc/module-seed.svg)](https://www.npmjs.com/package/@jerryc/module-seed) [![NPM Downloads](https://img.shields.io/npm/dm/@jerryc/module-seed.svg)](https://www.npmjs.com/package/@jerryc/module-seed) [![Coverage Status](https://coveralls.io/repos/github/JerryC8080/module-seed/badge.svg?branch=master)](https://coveralls.io/github/JerryC8080/module-seed?branch=master) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@jerryc/mini-logger.svg)
+[![Coveralls github branch](https://img.shields.io/coveralls/github/JerryC8080/module-seed/master?style=for-the-badge)](https://coveralls.io/github/JerryC8080/module-seed?branch=master)
+
+[![NPM Version](https://img.shields.io/npm/v/@jerryc/module-seed.svg?style=for-the-badge)](https://www.npmjs.com/package/@jerryc/module-seed) 
+
+[![NPM Downloads](https://img.shields.io/npm/dm/@jerryc/module-seed.svg?style=for-the-badge)](https://www.npmjs.com/package/@jerryc/module-seed)
+
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@jerryc/mini-logger.svg?style=for-the-badge)
 
 ## Motivation
 
