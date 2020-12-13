@@ -36,7 +36,7 @@ git clone git@github.com:JerryC8080/module-seed.git
 ├── .circleci // CircleCI 脚本
 │   ├── config.yml
 ├── coverage // 自动生成的测试覆盖率报告
-├── docs  // 自动生成的文档
+├── docs  // 自动生成的文档
 ├── build  // 构建代码
 │   ├── main  // 兼容 CommonJS
 │   │   ├── index.d.ts
