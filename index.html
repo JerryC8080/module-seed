@@ -94,7 +94,8 @@
 				<a href="#download" id="download" style="color: inherit; text-decoration: none;">
 					<h2>Download</h2>
 				</a>
-				<pre><code class="language-shell">git clone git@github.com:JerryC8080/module-seed.git</code></pre>
+				<pre><code class="language-shell">git clone git@github.com:JerryC8080/module-seed.git
+</code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
@@ -125,7 +126,8 @@
 ├── README.md
 ├── package.json
 ├── tsconfig.json
-└── tsconfig.module.json</code></pre>
+└── tsconfig.module.json
+</code></pre>
 				<a href="#2-npm-script" id="2-npm-script" style="color: inherit; text-decoration: none;">
 					<h3>2. Npm Script</h3>
 				</a>
@@ -177,13 +179,15 @@
 					<h3>3. Coverage</h3>
 				</a>
 				<p>通过运行 <code>npm run cov</code>，命令会构建单元测试，并且输出网页版本的测试报告：</p>
-				<pre><code class="language-shell">open coverage/index.html</code></pre>
+				<pre><code class="language-shell">open coverage/index.html
+</code></pre>
 				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212173414.png" alt="coverage"></p>
 				<a href="#4-docs" id="4-docs" style="color: inherit; text-decoration: none;">
 					<h3>4. Docs</h3>
 				</a>
 				<p>通过运行 <code>npm run doc</code>，会构建 TS API 文档，并且输出网页版本：</p>
-				<pre><code class="language-shell">open docs/index.html</code></pre>
+				<pre><code class="language-shell">open docs/index.html
+</code></pre>
 				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212173820.png" alt="docs"></p>
 				<a href="#5-circleci-config" id="5-circleci-config" style="color: inherit; text-decoration: none;">
 					<h3>5. CircleCI Config</h3>
@@ -222,13 +226,15 @@
           ./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls
 </span>    <span class="hljs-bullet">-</span> <span class="hljs-attr">store_artifacts:</span>
         <span class="hljs-attr">path:</span> <span class="hljs-string">coverage</span>
-<span class="hljs-string">...</span></code></pre>
+<span class="hljs-string">...</span>
+</code></pre>
 				<a href="#3-doc-site-to-github-pages" id="3-doc-site-to-github-pages" style="color: inherit; text-decoration: none;">
 					<h4>3. Doc Site to Github Pages</h4>
 				</a>
 				<p>本地可以通过命令来构建和发布文档站点到 Github Pages</p>
 				<pre><code class="language-shell">npm run doc
-npm run doc:publish</code></pre>
+npm run doc:publish
+</code></pre>
 				<p>如果这个动作交给 CircleCI 来完成，则需要为 Repo 添加一个 <code>Read/Write</code> 权限的 <code>User Key</code></p>
 				<p><img src="https://bluesun-1252625244.cos.ap-guangzhou.myqcloud.com/img/20201212180750.png" alt=""></p>
 				<p>那么，每次 CircleCI 发生构建的时候，就会构建文档，并发布到 Github Pages 中去。</p>
@@ -266,7 +272,8 @@ npm run doc:publish</code></pre>
       <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
           <span class="hljs-attr">name:</span> <span class="hljs-string">Publish</span> <span class="hljs-string">to</span> <span class="hljs-string">gh-pages</span>
           <span class="hljs-attr">command:</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">doc:publish</span>
-<span class="hljs-string">...</span></code></pre>
+<span class="hljs-string">...</span>
+</code></pre>
 				<a href="#4-coverage-site" id="4-coverage-site" style="color: inherit; text-decoration: none;">
 					<h4>4. Coverage site</h4>
 				</a>
@@ -306,11 +313,12 @@ npm run doc:publish</code></pre>
     <span class="hljs-bullet">-</span> <span class="hljs-attr">run:</span>
         <span class="hljs-attr">name:</span> <span class="hljs-string">Publish</span> <span class="hljs-string">package</span>
         <span class="hljs-attr">command:</span> <span class="hljs-string">npm</span> <span class="hljs-string">publish</span>
-<span class="hljs-string">...</span></code></pre>
+<span class="hljs-string">...</span>
+</code></pre>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
-				<p>This project is licensed under the <a href="LICENSE">MIT license</a>.<br>Copyright (c) JerryC Huang (<a href="mailto:&#x68;&#117;&#x61;&#x6e;&#103;&#106;&#101;&#114;&#114;&#121;&#x63;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x68;&#117;&#x61;&#x6e;&#103;&#106;&#101;&#114;&#114;&#121;&#x63;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>)</p>
+				<p>This project is licensed under the <a href="LICENSE">MIT license</a>.<br>Copyright (c) JerryC Huang (<a href="mailto:&#x68;&#117;&#x61;&#x6e;&#103;&#106;&#x65;&#x72;&#x72;&#121;&#99;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x68;&#117;&#x61;&#x6e;&#103;&#106;&#x65;&#x72;&#x72;&#121;&#99;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a>)</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
