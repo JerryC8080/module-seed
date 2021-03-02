@@ -101,6 +101,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          name: Avoid hosts unknown for github
+          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
           name: Set github email and user
           command: |
             git config --global user.email "huangjerryc@gmail.com"
@@ -111,6 +114,9 @@ jobs:
       - run:
           name: Update version as patch
           command: npm run version
+      - run:
+          name: Git push by skip ci build
+          command: git commit -m '[skip ci]' --allow-empty && git push
       - run:
           name: Publish package
           command: npm publish
